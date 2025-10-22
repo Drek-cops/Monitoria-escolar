@@ -1,0 +1,31 @@
+<h2>Histórico de Faltas</h2>
+
+<form method="POST">
+  <input name="turma" placeholder="Filtrar por turma">
+  <button type="submit">Filtrar</button>
+</form>
+
+<table border="1">
+  <tr><th>Data</th><th>Aluno</th><th>Turma</th><th>Tipo</th></tr>
+  {% for f in faltas %}
+  <tr><td>{{ f[5] }}</td><td>{{ f[2] }}</td><td>{{ f[3] }}</td><td>{{ f[4] }}</td></tr>
+  {% endfor %}
+</table>
+
+<canvas id="grafico" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('grafico');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [{% for f in faltas %}'{{ f[2] }}',{% endfor %}],
+    datasets: [{
+      label: 'Faltas registradas',
+      data: [{% for f in faltas %}1,{% endfor %}],
+      borderWidth: 1
+    }]
+  },
+  options: { scales: { y: { beginAtZero: true } } }
+});
+</script>
