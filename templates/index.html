@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Painel - Monitoria Escolar</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Bem-vindo, {{ usuario }}</h1>
+
+  <h3>Registrar Falta</h3>
+  <form method="POST" action="/registrar_falta">
+    <input type="text" name="aluno" placeholder="Aluno" required>
+    <input type="text" name="turma" placeholder="Turma" required>
+    <select name="tipo">
+      <option value="diária">Diária</option>
+      <option value="semanal">Semanal</option>
+      <option value="mensal">Mensal</option>
+    </select>
+    <button type="submit">Registrar Falta</button>
+  </form>
+
+  <h3>Registrar Desempenho</h3>
+  <form method="POST" action="/registrar_desempenho">
+    <input type="text" name="aluno" placeholder="Aluno" required>
+    <textarea name="observacao" placeholder="Observações do desempenho"></textarea>
+    <button type="submit">Salvar Desempenho</button>
+  </form>
+
+  <br>
+  <a href="/historico">📘 Ver Histórico</a> |
+  <a href="/gerar_pdf">📄 Gerar Relatório PDF</a> |
+  <a href="/logout">🚪 Sair</a>
+</body>
+</html>
