@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f8;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+input, select, textarea, button {
+  margin: 5px 0;
+  padding: 8px;
+  width: 250px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
